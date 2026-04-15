@@ -4,7 +4,7 @@ import { onAuthStateChanged } from "firebase/auth";
 import { auth } from "@/firebase/config";
 import { signup, login, loginWithGithub, loginWithGoogle, logout } from "@/firebase/auth";
 
-const AuthContext = createContext();
+const AuthContext = createContext(undefined);
 
 export function AuthProvider({ children }){
     const [ user, setUser] = useState(null);
@@ -19,8 +19,19 @@ export function AuthProvider({ children }){
         return  () => unsubscribe()
     },[])
 
+    const value = {
+        user,
+        loading,
+        authReady: !loading,
+        signup,
+        login,
+        loginWithGoogle,
+        loginWithGithub,
+        logout,
+    };
+
     return (
-        <AuthContext.Provider value={{user, signup, login,loginWithGoogle, loginWithGithub,logout}}>
+        <AuthContext.Provider value={value}>
             {children}
         </AuthContext.Provider>
     )
