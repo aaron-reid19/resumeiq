@@ -3,6 +3,7 @@ import { createContext, useContext, useState, useEffect } from "react";
 import { onAuthStateChanged } from "firebase/auth";
 import { auth } from "@/firebase/config";
 import { signup, login, loginWithGithub, loginWithGoogle, logout } from "@/firebase/auth";
+import { createUserDocument } from "@/services/userService";
 
 const AuthContext = createContext(undefined);
 
@@ -11,8 +12,18 @@ export function AuthProvider({ children }){
     const [ loading, setLoading ] = useState(true);
 
     useEffect(()=>{
-        const unsubscribe = onAuthStateChanged(auth,(currentUser) => {
+        const unsubscribe = onAuthStateChanged(auth, async (currentUser) => {
             setUser(currentUser);
+
+            try {
+                if (currentUser){
+                    await createUserDocument(currentUser);
+                }
+            }
+            catch (error) {
+                console.error("Failed to create user documents", error)
+            }
+            
             setLoading(false);
         });
 
