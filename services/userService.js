@@ -1,4 +1,4 @@
-import { doc, setDoc, getDoc, serverTimeStamp} from "firebase/firestore"
+import { doc, setDoc, getDoc, serverTimestamp} from "firebase/firestore"
 import { db } from "@/firebase/config";
 
 export async function createUserDocument(user) {
@@ -15,7 +15,7 @@ export async function createUserDocument(user) {
             displayName: user.displayName || "",
             email: user.email || "",
             provider: user.provider?.[0]?.providerId || "email",
-            createdAt: serverTimeStamp(),
+            createdAt: serverTimestamp(),
         })
     }
 }
