@@ -2,8 +2,6 @@
 import { useState } from "react";
 import { login, loginWithGoogle, loginWithGithub } from "@/firebase/auth";
 import { useRouter } from "next/navigation";
-import Link from "next/link";
-
 
 export default function LoginForm(){
     const router = useRouter();
@@ -12,14 +10,12 @@ export default function LoginForm(){
     const [password, setPassword ] = useState("");
     const [ error, setError ] = useState(null);
     const [ loading, setLoading ] = useState(false);
-    
 
     const handleSubmit = async (e) => {
         e.preventDefault();
         setError(null);
         setLoading(true);
         
-
         const { user, error } = await login(email, password)
         if (error){
             setError(error);
@@ -68,9 +64,9 @@ export default function LoginForm(){
         if (user) {
             setLoading(false);
             router.push("/dashboard");
-        }
-        
+        } 
     }
+
     return(
         <div className="w-full">
            <form onSubmit={handleSubmit}>
@@ -114,7 +110,6 @@ export default function LoginForm(){
                 {loading ? "Logging in" : "Log in"}
             </button>
 
-
            </form>
            
            <div className="mt-4 h-px w-full bg-white/10" />
@@ -138,7 +133,6 @@ export default function LoginForm(){
                     Continue with GitHub
                 </button>
            </div>
-           
         </div>
     )
 }

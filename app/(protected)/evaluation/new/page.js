@@ -1,5 +1,8 @@
+"use client"
+import EvaluationForm from "@/components/Evaluation/evaluationForm"
+
 export default function Page(){
     return (
-        <h1>Evaluation</h1>
+        <EvaluationForm />
     )
 }
