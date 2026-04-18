@@ -1,6 +1,6 @@
 "use client"
 import logo from "@/public/images/resumeiq-logo.png"
-import LoginForm from "@/components/auth/loginFrom";
+import LoginForm from "@/components/Auth/loginFrom";
 import Image from "next/image";
 import Link from "next/link";
 

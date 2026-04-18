@@ -54,7 +54,7 @@ export default function NavBar(){
                 </div>
                 <div className="flex items-center gap-3">
                 <p className="text-xs text-white/70">
-                    {user?.displayName || user?.email || "User"}
+                    {user?.email || "User"}
                 </p>
                 <button type="button" onClick={handlelogout}
                 className="rounded-full border border-white/15 px-3 py-1.5 text-xs text-white/70 transition-colors hover:bg-white/8 hover:text-white"

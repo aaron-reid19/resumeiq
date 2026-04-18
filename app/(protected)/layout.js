@@ -19,16 +19,12 @@ export default function ProtectedLayout({ children }) {
         return <div>Loading...</div>
     }
 
-    if(!user) {
-        re("/login");
-    }
     return (
-        <div className="min-h-dvh bg-black text-white">
+        <div className="min-h-dvh bg-[#171717] text-white">
             <NavBar />
             <main className="mx-auto w-full max-w-7xl px-6 py-8 md:px-10">
                 {children}
             </main>
         </div>
-        
     )
 }

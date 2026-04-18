@@ -14,7 +14,7 @@ export async function createUserDocument(user) {
             uid: user.uid,
             displayName: user.displayName || "",
             email: user.email || "",
-            provider: user.provider?.[0]?.providerId || "email",
+            provider: user.providerData?.[0]?.providerId || "email",
             createdAt: serverTimestamp(),
         })
     }
@@ -32,7 +32,7 @@ export async function getUserDocument(uid){
         return null;
     }
     return {
-        id: userSnapshot.uid,
+        id: userSnapshot.id,
         ...userSnapshot.data(),
-    }
+    };
 }
