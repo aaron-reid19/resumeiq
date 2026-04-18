@@ -1,5 +1,5 @@
 "use client"
-import SignupForm from "@/components/Auth/signupForm"
+import SignupForm from "@/components/auth/signupForm"
 import logo from "@/public/images/resumeiq-logo.png"
 import Image from "next/image";
 import Link from "next/link";

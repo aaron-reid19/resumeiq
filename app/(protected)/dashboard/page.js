@@ -106,7 +106,7 @@ export default function Page(){
                         <Link key={evaluation.id} href={`/evaluation/${evaluation.id}`} className="block">
                             <div className="flex items-center justify-between rounded-2xl border border-white/8 bg-[#171717] px-4 py-4 transition-colors hover:bg-[#1d1d1d]">
                                 <div>
-                                    <p className="text-sm font-medium text-white">{evaluation.title || "Untitled Evaluation"}</p>
+                                    <p className="text-sm font-medium text-white">{evaluation.companyName || "Untitled Evaluation"}</p>
                                     <p className="mt-1 text-xs text-white/50">
                                         {evaluation.createdAt?.toDate
                                         ? evaluation.createdAt.toDate().toLocaleDateString()
