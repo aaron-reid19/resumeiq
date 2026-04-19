@@ -152,7 +152,14 @@ export default function EvaluationForm(){
                         disabled={loading}
                         className="inline-flex items-center justify-center rounded-[10px] bg-blue-600 px-4 py-2.5 text-sm font-medium text-white transition-colors hover:bg-blue-500 disabled:cursor-not-allowed disabled:opacity-70"
                     >
-                        {loading ? "Evaluating..." : "Evaluate Resume"}
+                        {loading ? (
+                            <span className="flex items-center gap-2">
+                                <span className="h-4 w-4 animate-spin rounded-full border-2 border-white/30 border-t-white" />
+                                Evaluating...
+                            </span>
+                        ) : (
+                            "Evaluate Resume"
+                        )}
                     </button>
                 </div>
             </form>

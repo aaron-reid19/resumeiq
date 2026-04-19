@@ -1,6 +1,6 @@
 "use client"
 import { useState } from "react";
-import { login, loginWithGoogle, loginWithGithub } from "@/firebase/auth";
+import { login, loginWithGoogle } from "@/firebase/auth";
 import { useRouter } from "next/navigation";
 
 export default function LoginForm(){
@@ -47,24 +47,6 @@ export default function LoginForm(){
             setLoading(false);
             router.push("/dashboard")
         }
-    }
-
-    const handleGithubLogin = async () => {
-        setError(null);
-        setLoading(true);
-
-        const { user, error } = await loginWithGithub();
-
-        if (error) {
-            setError(error);
-            setLoading(false);
-            return;
-        }
-
-        if (user) {
-            setLoading(false);
-            router.push("/dashboard");
-        } 
     }
 
     return(
@@ -122,15 +104,6 @@ export default function LoginForm(){
                 className="flex w-full items-center justify-center rounded-[10px] border border-white/20 bg-[#1D1D1D] px-4 py-3 text-white transition-colors hover:bg-[#252525] disabled:cursor-not-allowed disabled:opacity-70"
                 >
                     Continue with Google
-                </button>
-
-                <button
-                type="button"
-                onClick={handleGithubLogin}
-                disabled={loading}
-                className="flex w-full items-center justify-center rounded-[10px] border border-white/20 bg-[#1D1D1D] px-4 py-3 text-white transition-colors hover:bg-[#252525] disabled:cursor-not-allowed disabled:opacity-70"
-                >
-                    Continue with GitHub
                 </button>
            </div>
         </div>

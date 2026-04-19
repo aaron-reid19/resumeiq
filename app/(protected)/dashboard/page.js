@@ -113,7 +113,7 @@ export default function Page(){
                                         : "No date"}
                                     </p>
                                 </div>
-                                <p className="text-sm font-semibold text-white/80">{evaluation.score ?? "--"}</p>
+                                <p className="text-sm font-semibold text-white/80">{evaluation.score +"%"?? "--"}</p>
                             </div>
                         </Link>
                             ))}

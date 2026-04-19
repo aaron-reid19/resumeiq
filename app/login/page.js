@@ -9,7 +9,7 @@ export default function Page(){
 
 
     return(
-        <main className="min-h-dvh overflow-hidden bg-black text-white">
+        <main className="min-h-dvh overflow-hidden bg-[#111111] text-white md:bg-black">
             <div className="flex min-h-dvh flex-col md:flex-row">
                 <section className="flex w-full flex-col justify-start border-r border-white/10 bg-[#111111] px-8 py-6 md:w-[43.7%] md:px-12 md:py-5 md:flex-none lg:px-14">
                     <div className="mx-auto w-full max-w-sm md:pt-2">
